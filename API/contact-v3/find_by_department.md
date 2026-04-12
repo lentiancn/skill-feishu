@@ -152,46 +152,46 @@ public class Main {
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
-| `union_id` | string | 用户的 union_id，是应用开发商发布的不同应用中同一用户的标识 |
-| `user_id` | string | 用户的 user_id，租户内用户的唯一标识 |
-| `open_id` | string | 用户的 open_id，应用内用户的唯一标识 |
-| `name` | string | 用户名 |
-| `en_name` | string | 英文名 |
-| `nickname` | string | 别名 |
-| `email` | string | 邮箱 |
-| `mobile` | string | 手机号 |
+| `union_id` | string | 用户的 union_id，是应用开发商发布的不同应用中同一用户的标识<br>**权限要求**：统一用户标识 (contact:user.base:readonly) |
+| `user_id` | string | 用户的 user_id，租户内用户的唯一标识<br>**权限要求**：获取用户 user ID (contact:user.employee_id:readonly) |
+| `open_id` | string | 用户的 open_id，应用内用户的唯一标识<br>**权限要求**：获取用户基本信息 (contact:user.base:readonly) |
+| `name` | string | 用户名<br>**权限要求**：获取用户基本信息 (contact:user.base:readonly) |
+| `en_name` | string | 英文名<br>**权限要求**：获取用户基本信息 (contact:user.base:readonly) |
+| `nickname` | string | 别名<br>**权限要求**：获取用户基本信息 (contact:user.base:readonly) |
+| `email` | string | 邮箱<br>**权限要求**：获取用户邮箱信息 (contact:user.email:readonly) |
+| `mobile` | string | 手机号<br>**权限要求**：获取用户手机号 (contact:user.phone:readonly) |
 | `mobile_visible` | boolean | 手机号码是否可见<br>- true：可见<br>- false：不可见 |
-| `gender` | int | 性别<br>- 0：保密<br>- 1：男<br>- 2：女<br>- 3：其他 |
+| `gender` | int | 性别<br>- 0：保密<br>- 1：男<br>- 2：女<br>- 3：其他<br>**权限要求**：获取用户性别 (contact:user.gender:readonly) |
 | `avatar_key` | string | 头像的文件 Key |
-| `avatar` | object | 用户头像信息 |
+| `avatar` | object | 用户头像信息<br>**权限要求**：获取用户基本信息 (contact:user.base:readonly) |
 | `avatar_72` | string | 72*72 像素头像链接 |
 | `avatar_240` | string | 240*240 像素头像链接 |
-| `avatar_640` | string | 640*640 像素头像链接 |
+| `avatar_640` | string | 640*640 �素头像链接 |
 | `avatar_origin` | string | 原始头像链接 |
-| `status` | object | 用户状态 |
+| `status` | object | 用户状态<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
 | `is_frozen` | boolean | 是否为暂停状态 |
 | `is_resigned` | boolean | 是否为离职状态 |
 | `is_activated` | boolean | 是否为激活状态 |
 | `is_exited` | boolean | 是否为主动退出状态 |
 | `is_unjoin` | boolean | 是否为未加入状态 |
-| `department_ids` | string[] | 用户所属部门的 ID 列表 |
-| `leader_user_id` | string | 用户的直接主管的用户ID |
-| `city` | string | 工作城市 |
-| `country` | string | 国家或地区 Code 缩写 |
-| `work_station` | string | 工位 |
-| `join_time` | int | 入职时间（秒级时间戳） |
-| `is_tenant_manager` | boolean | 用户是否为租户超级管理员 |
-| `employee_no` | string | 工号 |
-| `employee_type` | int | 员工类型<br>- 1：正式员工<br>- 2：实习生<br>- 3：外包<br>- 4：劳务<br>- 5：顾问 |
-| `orders` | object[] | 用户排序信息 |
-| `custom_attrs` | object[] | 自定义字段 |
-| `enterprise_email` | string | 企业邮箱 |
-| `job_title` | string | 职务 |
-| `geo` | string | 数据驻留地 |
-| `job_level_id` | string | 职级 ID |
-| `job_family_id` | string | 序列 ID |
-| `department_path` | object[] | 部门路径（仅 user_access_token 返回） |
-| `dotted_line_leader_user_ids` | string[] | 虚线上级的用户 ID |
+| `department_ids` | string[] | 用户所属部门的 ID 列表<br>**权限要求**：获取用户组织架构信息 (contact:user.department:readonly) |
+| `leader_user_id` | string | 用户的直接主管的用户ID<br>**权限要求**：获取用户组织架构信息 (contact:user.department:readonly) |
+| `city` | string | 工作城市<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `country` | string | 国家或地区 Code 缩写<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `work_station` | string | 工位<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `join_time` | int | 入职时间（秒级时间戳）<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `is_tenant_manager` | boolean | 用户是否为租户超级管理员<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `employee_no` | string | 工号<br>**权限要求**：查看成员工号 (contact:user.employee_number:read) |
+| `employee_type` | int | 员工类型<br>- 1：正式员工<br>- 2：实习生<br>- 3：外包<br>- 4：劳务<br>- 5：顾问<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `orders` | object[] | 用户排序信息<br>**权限要求**：获取用户组织架构信息 (contact:user.department:readonly) |
+| `custom_attrs` | object[] | 自定义字段<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `enterprise_email` | string | 企业邮箱<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `job_title` | string | 职务<br>**权限要求**：获取用户受雇信息 (contact:user.employee:readonly) |
+| `geo` | string | 数据驻留地<br>**权限要求**：查看成员数据驻留地 (contact:user.user_geo) |
+| `job_level_id` | string | 职级 ID<br>**权限要求**：查询用户职级 (contact:user.job_level:readonly) |
+| `job_family_id` | string | 序列 ID<br>**权限要求**：查询用户所属的工作序列 (contact:user.job_family:readonly) |
+| `department_path` | object[] | 部门路径（仅 user_access_token 返回）<br>**权限要求**：获取成员所在部门路径 (contact:user.department_path:readonly) |
+| `dotted_line_leader_user_ids` | string[] | 虚线上级的用户 ID<br>**权限要求**：查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
 
 #### user_status 对象
 
