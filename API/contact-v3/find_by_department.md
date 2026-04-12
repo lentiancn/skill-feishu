@@ -10,7 +10,7 @@
 
 关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。
 
-## 基本信息
+## 接口信息
 
 | 项目 | 值 |
 |------|-----|
@@ -65,7 +65,7 @@
 | `page_size` | int | 否 | 分页大小<br>默认值：`10`<br>数据校验规则：<br>- 最大值：`50` |
 | `page_token` | string | 否 | 分页标记，第一次请求不填，表示从头开始遍历 |
 
-## 响应格式
+## 接口响应
 
 ### 响应体
 
