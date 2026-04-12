@@ -14,26 +14,26 @@
 
 | 权限类型 | 权限名称 |
 |----------|----------|
-| 应用权限<br>（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
-| 应用权限<br>（开启任一即可） | 获取通讯录部门组织架构信息 (contact:department.organize:readonly) |
-| 应用权限<br>（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
-| 应用权限<br>（开启任一即可） | 读取通讯录 (contact:contact:readonly) |
-| 应用权限<br>（开启任一即可） | 以应用身份读取通讯录 (contact:contact:readonly_as_app) |
-| 字段权限<br>（敏感字段） | 统一用户标识 (contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户 user ID (contact:user.employee_id:readonly) |
-| 字段权限<br>（敏感字段） | 应用内用户标识 (contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户基本信息 (contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户邮箱信息 (contact:user.email:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户手机号 (contact:user.phone:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户性别 (contact:user.gender:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户受雇信息 (contact:user.employee:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户组织架构信息 (contact:user.department:readonly) |
-| 字段权限<br>（敏感字段） | 查看成员工号 (contact:user.employee_number:read) |
-| 字段权限<br>（敏感字段） | 查看成员数据驻留地 (contact:user.user_geo) |
-| 字段权限<br>（敏感字段） | 查询用户职级 (contact:user.job_level:readonly) |
-| 字段权限<br>（敏感字段） | 查询用户所属的工作序列 (contact:user.job_family:readonly) |
-| 字段权限<br>（敏感字段） | 获取成员所在部门路径 (contact:user.department_path:readonly) |
-| 字段权限<br>（敏感字段） | 查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
+| 应用权限（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
+| 应用权限（开启任一即可） | 获取通讯录部门组织架构信息 (contact:department.organize:readonly) |
+| 应用权限（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
+| 应用权限（开启任一即可） | 读取通讯录 (contact:contact:readonly) |
+| 应用权限（开启任一即可） | 以应用身份读取通讯录 (contact:contact:readonly_as_app) |
+| 字段权限（敏感字段） | 统一用户标识 (contact:user.base:readonly) |
+| 字段权限（敏感字段） | 获取用户 user ID (contact:user.employee_id:readonly) |
+| 字段权限（敏感字段） | 应用内用户标识 (contact:user.base:readonly) |
+| 字段权限（敏感字段） | 获取用户基本信息 (contact:user.base:readonly) |
+| 字段权限（敏感字段） | 获取用户邮箱信息 (contact:user.email:readonly) |
+| 字段权限（敏感字段） | 获取用户手机号 (contact:user.phone:readonly) |
+| 字段权限（敏感字段） | 获取用户性别 (contact:user.gender:readonly) |
+| 字段权限（敏感字段） | 获取用户受雇信息 (contact:user.employee:readonly) |
+| 字段权限（敏感字段） | 获取用户组织架构信息 (contact:user.department:readonly) |
+| 字段权限（敏感字段） | 查看成员工号 (contact:user.employee_number:read) |
+| 字段权限（敏感字段） | 查看成员数据驻留地 (contact:user.user_geo) |
+| 字段权限（敏感字段） | 查询用户职级 (contact:user.job_level:readonly) |
+| 字段权限（敏感字段） | 查询用户所属的工作序列 (contact:user.job_family:readonly) |
+| 字段权限（敏感字段） | 获取成员所在部门路径 (contact:user.department_path:readonly) |
+| 字段权限（敏感字段） | 查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
 
 > **说明**：敏感字段仅在开启对应权限后才会返回；如无需获取这些字段，不建议申请。
 
@@ -68,6 +68,61 @@
 ### 请求体
 
 无请求体（GET 请求）
+
+### 请求示例
+
+#### Go 请求示例
+
+```go
+import (
+	"context"
+
+	"github.com/larksuite/oapi-sdk-go/v3"
+	"github.com/larksuite/oapi-sdk-go/v3/service/contact/v3"
+)
+
+func main() {
+	// 创建 Client
+	client := lark.NewClient("appID", "appSecret")
+
+	// 创建请求对象
+	req := larkcontact.NewFindByDepartmentUserReqBuilder().
+		UserIdType(`open_id`).
+		DepartmentIdType(`open_department_id`).
+		DepartmentId(`od-xxxxxxxxxxxxx`).
+		PageSize(10).
+		Build()
+
+	// 发起请求
+	resp, err := client.Contact.User.FindByDepartment(context.Background(), req)
+}
+```
+
+#### Java 请求示例
+
+```java
+import com.lark.oapi.Client;
+import com.lark.oapi.service.contact.v3.model.*;
+import com.lark.oapi.core.request.RequestOptions;
+
+public class Main {
+    public static void main(String arg[]) throws Exception {
+        // 构建client
+        Client client = Client.newBuilder("appId", "appSecret").build();
+
+        // 创建请求对象
+        FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder()
+                .userIdType("open_id")
+                .departmentIdType("open_department_id")
+                .departmentId("od-xxxxxxxxxxxxx")
+                .pageSize(10)
+                .build();
+
+        // 发起请求
+        FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
+    }
+}
+```
 
 ## 接口响应
 
@@ -225,62 +280,7 @@
 | `department_ids` | string[] | 部门路径 ID 列表 |
 | `department_path_name` | object | 部门路径名字信息 |
 
-## 接口请求示例
-
-### Go 请求示例
-
-```go
-import (
-	"context"
-
-	"github.com/larksuite/oapi-sdk-go/v3"
-	"github.com/larksuite/oapi-sdk-go/v3/service/contact/v3"
-)
-
-func main() {
-	// 创建 Client
-	client := lark.NewClient("appID", "appSecret")
-
-	// 创建请求对象
-	req := larkcontact.NewFindByDepartmentUserReqBuilder().
-		UserIdType(`open_id`).
-		DepartmentIdType(`open_department_id`).
-		DepartmentId(`od-xxxxxxxxxxxxx`).
-		PageSize(10).
-		Build()
-
-	// 发起请求
-	resp, err := client.Contact.User.FindByDepartment(context.Background(), req)
-}
-```
-
-### Java 请求示例
-
-```java
-import com.lark.oapi.Client;
-import com.lark.oapi.service.contact.v3.model.*;
-import com.lark.oapi.core.request.RequestOptions;
-
-public class Main {
-    public static void main(String arg[]) throws Exception {
-        // 构建client
-        Client client = Client.newBuilder("appId", "appSecret").build();
-
-        // 创建请求对象
-        FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder()
-                .userIdType("open_id")
-                .departmentIdType("open_department_id")
-                .departmentId("od-xxxxxxxxxxxxx")
-                .pageSize(10)
-                .build();
-
-        // 发起请求
-        FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
-    }
-}
-```
-
-## 响应示例
+### 响应示例
 
 ```json
 {
@@ -394,7 +394,7 @@ public class Main {
 }
 ```
 
-## 错误码
+### 错误码
 
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
@@ -412,7 +412,7 @@ public class Main {
 | 400 | 40012 | page_token 与上次请求返回的 page_token 不匹配 |
 | 403 | 40004 | 当前操作的部门需在应用的通讯录权限范围内 |
 
-## 相关链接
+### 相关链接
 
 | 链接类型 | 链接 |
 |----------|------|
