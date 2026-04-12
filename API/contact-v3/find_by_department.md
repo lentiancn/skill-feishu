@@ -132,7 +132,7 @@ public class Main {
 |------|------|------|
 | - | - | 无额外响应头字段 |
 
-## 响应体
+### 响应体
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -140,7 +140,7 @@ public class Main {
 | `msg` | string | 错误描述 |
 | `data` | object | 响应数据 |
 
-### data 对象
+#### data 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -148,7 +148,7 @@ public class Main {
 | `page_token` | string | 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token |
 | `items` | user[] | 用户信息列表 |
 
-### data.items 数组中的 user 对象
+#### data.items 数组中的 user 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -193,7 +193,7 @@ public class Main {
 | `department_path` | object[] | 部门路径（仅 user_access_token 返回） |
 | `dotted_line_leader_user_ids` | string[] | 虚线上级的用户 ID |
 
-### user_status 对象
+#### user_status 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -203,7 +203,7 @@ public class Main {
 | `is_exited` | boolean | 是否为主动退出状态 |
 | `is_unjoin` | boolean | 是否为未加入状态 |
 
-### avatar_info 对象
+#### avatar_info 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -212,7 +212,7 @@ public class Main {
 | `avatar_640` | string | 640*640 像素头像链接 |
 | `avatar_origin` | string | 原始头像链接 |
 
-### user_order 对象
+#### user_order 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -221,7 +221,7 @@ public class Main {
 | `department_order` | int | 用户所属的多个部门间的排序 |
 | `is_primary_dept` | boolean | 是否为用户的唯一主部门 |
 
-### user_custom_attr 对象
+#### user_custom_attr 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -229,7 +229,7 @@ public class Main {
 | `id` | string | 自定义字段 ID |
 | `value` | object | 自定义字段取值 |
 
-### user_custom_attr_value 对象
+#### user_custom_attr_value 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -242,14 +242,14 @@ public class Main {
 | `picture_url` | string | PICTURE_ENUM 类型返回图片链接 |
 | `generic_user` | object | GENERIC_USER 类型返回引用人员信息 |
 
-### generic_user 对象
+#### generic_user 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `id` | string | 引用人员的用户 ID |
 | `type` | int | 用户类型（固定为 1） |
 
-### department_detail 对象
+#### department_detail 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -258,14 +258,14 @@ public class Main {
 | `department_path` | object | 部门路径 |
 | `department_ids` | string[] | 部门路径 ID 列表 |
 
-### department_path_name 对象
+#### department_path_name 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `name` | string | 部门名 |
 | `i18n_name` | object | 部门国际化名 |
 
-### department_i18n_name 对象
+#### department_i18n_name 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
@@ -273,14 +273,14 @@ public class Main {
 | `ja_jp` | string | 部门的日文名 |
 | `en_us` | string | 部门的英文名 |
 
-### department_path 对象
+#### department_path 对象
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `department_ids` | string[] | 部门路径 ID 列表 |
 | `department_path_name` | object | 部门路径名字信息 |
 
-#### 响应示例
+### 错误码
 
 ```json
 {
@@ -394,7 +394,7 @@ public class Main {
 }
 ```
 
-### 错误码
+## 错误码
 
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|

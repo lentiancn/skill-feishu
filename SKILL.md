@@ -1,6 +1,18 @@
 # skill-feishu - 飞书相关技能
 
-这个技能包用于处理飞书相关操作，记录飞书 API 及权限配置。
+这个技能包用于处理飞书相关操作，**收集飞书 API 到 API/ 目录，收集权限信息到 PERMISSION/ 目录**。
+
+## API 文档格式
+
+API 文档严格遵循 `API/TEMPLATE.md` 模板格式，示例参考 `API/contact-v3/find_by_department.md`。
+
+## 权限文档格式
+
+权限文档严格遵循 `PERMISSION/TEMPLATE.md` 模板格式。
+
+## 包含模块
+
+- **API** - 飞书 API 文档集合
 
 ## 包含模块
 
