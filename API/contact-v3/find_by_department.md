@@ -39,13 +39,12 @@
 
 ## 接口信息
 
-| 项目 | 值 |
-|------|-----|
-| **API 路径** | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
-| **请求方法** | GET |
-| **接口频率限制** | 1000 次/分钟、50 次/秒 |
-| **支持的应用类型** | Custom App、Store App |
-| **文档地址** | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
+| API 路径 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
+|----------|------------------------------------------------------------------------|
+| 请求方法 | GET |
+| 接口频率限制 | 1000 次/分钟、50 次/秒 |
+| 支持的应用类型 | Custom App、Store App |
+| 文档地址 | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
 
 ## 接口请求
 
