@@ -5,7 +5,22 @@
 ## 包含模块
 
 - **API** - 飞书 API 文档集合
-- **Permission** - 飞书权限配置指南
+  - README.md
+  - REFERENCES.md
+  - TEMPLATE.md
+  - contact-v3/ - 飞书联系人 v3 API
+    - README.md
+    - find_by_department.md
+    - get_user.md
+    - users.md
+  - department-v3/ - 飞书部门 API
+  - user-v3/ - 飞书用户 API
+- **PERMISSION** - 飞书权限配置指南
+  - README.md
+  - API_PERMISSIONS.md
+  - DEPARTMENT_ACCESS.md
+  - FIELDS.md
+  - TEMPLATE.md
 
 ## 重要规则（必读）
 
