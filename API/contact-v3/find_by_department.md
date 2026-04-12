@@ -54,7 +54,9 @@
 |------|------|------|------|
 | `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) |
 
-### 查询参数
+### 请求参数
+
+#### 查询参数
 
 | 参数名 | 类型 | 必填 | 描述 |
 |--------|------|------|------|
@@ -63,6 +65,10 @@
 | `department_id` | string | 是 | 部门 ID，ID 类型与 `department_id_type` 的取值保持一致。<br>说明：<br>- 根部门的部门 ID 为 0<br>- 可调用搜索部门接口获取对应的部门 ID |
 | `page_size` | int | 否 | 分页大小<br>默认值：`10`<br>数据校验规则：<br>- 最大值：`50` |
 | `page_token` | string | 否 | 分页标记，第一次请求不填，表示从头开始遍历 |
+
+### 请求体
+
+无请求体（GET 请求）
 
 ## 接口响应
 
@@ -215,7 +221,7 @@
 | `department_ids` | string[] | 部门路径 ID 列表 |
 | `department_path_name` | object | 部门路径名字信息 |
 
-## 请求参数示例
+## 接口请求示例
 
 ### Go 请求示例
 
