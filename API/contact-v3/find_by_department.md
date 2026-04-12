@@ -84,6 +84,11 @@
 | `code` | int | 错误码，非 0 表示失败 |
 | `msg` | string | 错误描述 |
 | `data` | object | 响应数据 |
+
+### data 对象
+
+| 字段 | 类型 | 描述 |
+|------|------|------|
 | `has_more` | boolean | 是否还有更多项 |
 | `page_token` | string | 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token |
 | `items` | user[] | 用户信息列表 |
