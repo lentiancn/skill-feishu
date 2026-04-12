@@ -39,9 +39,9 @@
 
 ## 接口信息
 
-| 接口地址 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
+| API 路径 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
 |----------|------------------------------------------------------------------------|
-| 接口方法 | GET |
+| 请求方法 | GET |
 | 调用频率限制 | 1000 次/分钟、50 次/秒 |
 | 支持的应用类型 | Custom App、Store App |
 | 文档地址 | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
@@ -403,18 +403,18 @@ public class Main {
 | 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
 | 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
 
-## 排错思路
+### 错误码排查思路
 
-| HTTP状态码 | 错误码 | 排查建议 |
-|------------|--------|----------|
-| 400 | 41050 | **使用 tenant_access_token 调用 API**<br>当前操作的用户需要添加在应用的通讯录权限范围内。由开发者登录[开发者后台](https://open.feishu.cn/app)，在应用详情页的 **开发配置** > **权限管理** > **数据权限** 页面内，配置 **通讯录权限范围**，添加指定用户。已发布的应用企业管理员可在[管理后台](http://feishu.cn/admin) > **工作台** > **应用管理** 页面，修改应用的通讯录权限范围。<br><br>**使用 user_access_token 调用 API**<br>由企业管理员在[管理后台](http://feishu.cn/admin) > **安全** > **成员权限** 页面中，点击 **组织架构可见范围** 进行管理。 |
-| 400 | 40011 | page_size 的取值范围为 1-50 |
-| 400 | 40012 | page_token 与上次请求返回的 page_token 不匹配 |
-| 403 | 40004 | 当前操作的部门需在应用的通讯录权限范围内 |
+| HTTP状态码 | 错误码 | 描述 | 排查建议 |
+|------------|--------|------|----------|
+| 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
+| 400 | 40011 | page size is invalid | 无效的分页参数。page_size 的取值上限为 50 |
+| 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
+| 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
 
 ## 相关链接
 
-| 类型 | 地址 |
+| 链接类型 | 链接 |
 |----------|------|
 | 应用权限配置 | [https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN) |
 | 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
