@@ -56,8 +56,6 @@
 
 ### 请求参数
 
-#### 查询参数
-
 | 参数名 | 类型 | 必填 | 描述 |
 |--------|------|------|------|
 | `user_id_type` | string | 否 | 用户 ID 类型<br>可选值：<br>- `open_id`：标识一个用户在某个应用中的身份<br>- `union_id`：标识一个用户在某个应用开发商下的身份<br>- `user_id`：标识一个用户在某个租户内的身份<br>默认值：`open_id`<br>当值为 `user_id`，字段权限要求：`contact:user.employee_id:readonly` |
