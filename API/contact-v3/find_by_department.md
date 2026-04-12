@@ -14,26 +14,26 @@
 
 | 权限类型 | 权限名称 |
 |----------|----------|
-| 应用权限<br>（开启任一即可） | 获取通讯录基本信息(contact:contact.base:readonly) |
-| 应用权限<br>（开启任一即可） | 获取通讯录部门组织架构信息(contact:department.organize:readonly) |
-| 应用权限<br>（开启任一即可） | 以应用身份访问通讯录(contact:contact:access_as_app) |
-| 应用权限<br>（开启任一即可） | 读取通讯录(contact:contact:readonly) |
-| 应用权限<br>（开启任一即可） | 以应用身份读取通讯录(contact:contact:readonly_as_app) |
-| 字段权限<br>（敏感字段） | 统一用户标识(contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户 user ID(contact:user.employee_id:readonly) |
-| 字段权限<br>（敏感字段） | 应用内用户标识(contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户基本信息(contact:user.base:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户邮箱信息(contact:user.email:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户手机号(contact:user.phone:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户性别(contact:user.gender:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户受雇信息(contact:user.employee:readonly) |
-| 字段权限<br>（敏感字段） | 获取用户组织架构信息(contact:user.department:readonly) |
-| 字段权限<br>（敏感字段） | 查看成员工号(contact:user.employee_number:read) |
-| 字段权限<br>（敏感字段） | 查看成员数据驻留地(contact:user.user_geo) |
-| 字段权限<br>（敏感字段） | 查询用户职级(contact:user.job_level:readonly) |
-| 字段权限<br>（敏感字段） | 查询用户所属的工作序列(contact:user.job_family:readonly) |
-| 字段权限<br>（敏感字段） | 获取成员所在部门路径(contact:user.department_path:readonly) |
-| 字段权限<br>（敏感字段） | 查看成员的虚线上级 ID(contact:user.dotted_line_leader_info.read) |
+| 应用权限<br>（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
+| 应用权限<br>（开启任一即可） | 获取通讯录部门组织架构信息 (contact:department.organize:readonly) |
+| 应用权限<br>（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
+| 应用权限<br>（开启任一即可） | 读取通讯录 (contact:contact:readonly) |
+| 应用权限<br>（开启任一即可） | 以应用身份读取通讯录 (contact:contact:readonly_as_app) |
+| 字段权限<br>（敏感字段） | 统一用户标识 (contact:user.base:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户 user ID (contact:user.employee_id:readonly) |
+| 字段权限<br>（敏感字段） | 应用内用户标识 (contact:user.base:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户基本信息 (contact:user.base:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户邮箱信息 (contact:user.email:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户手机号 (contact:user.phone:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户性别 (contact:user.gender:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户受雇信息 (contact:user.employee:readonly) |
+| 字段权限<br>（敏感字段） | 获取用户组织架构信息 (contact:user.department:readonly) |
+| 字段权限<br>（敏感字段） | 查看成员工号 (contact:user.employee_number:read) |
+| 字段权限<br>（敏感字段） | 查看成员数据驻留地 (contact:user.user_geo) |
+| 字段权限<br>（敏感字段） | 查询用户职级 (contact:user.job_level:readonly) |
+| 字段权限<br>（敏感字段） | 查询用户所属的工作序列 (contact:user.job_family:readonly) |
+| 字段权限<br>（敏感字段） | 获取成员所在部门路径 (contact:user.department_path:readonly) |
+| 字段权限<br>（敏感字段） | 查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
 
 > **说明**：敏感字段仅在开启对应权限后才会返回；如无需获取这些字段，不建议申请。
 
