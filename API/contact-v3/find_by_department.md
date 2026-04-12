@@ -39,10 +39,10 @@
 
 ## 接口信息
 
-| API 路径 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
+| 接口地址 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
 |----------|------------------------------------------------------------------------|
-| 请求方法 | GET |
-| 接口频率限制 | 1000 次/分钟、50 次/秒 |
+| 接口方法 | GET |
+| 调用频率限制 | 1000 次/分钟、50 次/秒 |
 | 支持的应用类型 | Custom App、Store App |
 | 文档地址 | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
 
@@ -403,7 +403,7 @@ public class Main {
 | 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
 | 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
 
-### 错误码排查思路
+## 排错思路
 
 | HTTP状态码 | 错误码 | 排查建议 |
 |------------|--------|----------|
@@ -414,7 +414,7 @@ public class Main {
 
 ## 相关链接
 
-| 链接类型 | 链接 |
+| 类型 | 地址 |
 |----------|------|
 | 应用权限配置 | [https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN) |
 | 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
