@@ -10,12 +10,16 @@
 | `FIELDS.md` | 字段权限与所需权限对应表 |
 | `DEPARTMENT_ACCESS.md` | 部门访问权限配置 |
 
+## 权限配置步骤
+
+1. 访问 [飞书开放平台](https://open.feishu.cn/)
+2. 进入你的应用
+3. 在「应用权限」→「通讯录权限」中配置
+4. 在「部门可见范围」中配置可访问的部门
+
 ## App 配置
 
-- **App ID**: `cli_a951a619cc611bef`
-- **App Secret**: `Sdo1mO1ekr3WJe5wxsZCwgQ7HZv8NOIL`
-
-## 权限配置步骤
+⚠️ **安全提示**：应用凭证应存储在环境变量或配置文件中。
 
 1. 访问 [飞书开放平台](https://open.feishu.cn/)
 2. 进入你的应用

@@ -8,5 +8,10 @@
 
 ## App 配置
 
-- **App ID**: `cli_a951a619cc611bef`
-- **App Secret**: `Sdo1mO1ekr3WJe5wxsZCwgQ7HZv8NOIL`
+⚠️ **安全提示**：应用凭证应存储在环境变量或配置文件中，不要硬编码在代码中。
+
+## 常用链接
+
+- [用户 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
+- [部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+- [权限范围校验](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)
