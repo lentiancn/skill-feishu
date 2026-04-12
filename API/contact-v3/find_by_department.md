@@ -280,7 +280,7 @@ public class Main {
 | `department_ids` | string[] | 部门路径 ID 列表 |
 | `department_path_name` | object | 部门路径名字信息 |
 
-### 响应示例
+#### 响应示例
 
 ```json
 {
