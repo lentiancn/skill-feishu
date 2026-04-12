@@ -6,7 +6,31 @@
 
 - **API** - 飞书 API 文档集合
 - **Permission** - 飞书权限配置指南
-- **Scripts** - 自动化脚本
+
+## 重要规则（必读）
+
+### 🚫 严格禁止的操作
+
+以下操作在任何情况下都**绝对禁止**，否则视为严重 BUG 和错误：
+
+| 禁止操作 | 说明 |
+|---------|------|
+| **简化内容** | 任何文档、API 说明、字段描述、权限要求等**必须完整版**，禁止省略、缩写、合并 |
+| **数据推算** | 禁止根据已有数据推算出不存在的信息，必须**真实记录**，没有就写"无此信息" |
+| **省略示例** | 请求示例、响应示例、错误码示例等**必须完整**，禁止省略部分行 |
+| **偷懒操作** | 不得跳过必填字段说明、参数说明等文档内容 |
+| **模糊处理** | 所有字段说明、权限要求、参数说明必须清晰完整，不可模糊 |
+
+### 违反规则的严重性
+
+违反上述任何一条规则，均视为：
+- ❌ **严重 BUG**
+- ❌ **错误**
+- ❌ **过错**
+- ❌ **偷懒**
+- ❌ **失误**
+
+这些操作在任何情况下都不允许发生。
 
 ## 使用说明
 
@@ -41,49 +65,20 @@
 - **权限标识**：使用飞书开放平台的标准权限标识
 - **中文说明**：格式为 `中文内容(权限标识)`
 - **超链接**：将权限标识链接到 `PERMISSION/FIELDS.md` 中对应的权限详情
+- **必须完整**：权限说明、字段说明、示例等**禁止简化**，必须保持飞书官方文档的完整性
 
 ### 字段权限说明示例
 
 ```markdown
 | 字段 | 所需权限 |
 |------|---------|
-| `union_id` | 统一用户标识(权限标识) | 统一用户标识 |
-| `user_id` | 获取用户 user ID(权限标识) | 用户的 user_id |
+| `union_id` | 统一用户标识(contact:contact:readonly) |
+| `user_id` | 获取用户 user ID(contact:user.employee_id:readonly) |
 ```
 
 ### 字段权限要求
 
-| 字段 | 所需权限 |
-|------|---------|
-| `union_id` | [统一用户标识（应用开发商下的用户标识）\(contact:contact:readonly 或 contact:contact:access_as_app\)](./PERMISSION/FIELDS.md#union_id) |
-| `user_id` | [获取用户 user ID\(contact:user.employee_id:readonly\)](./PERMISSION/FIELDS.md#user_id) |
-| `open_id` | [应用内用户标识\(contact:contact:readonly 或 contact:contact:access_as_app\)](./PERMISSION/FIELDS.md#open_id) |
-| `name` | [获取用户基本信息\(contact:user.base:readonly\)](./PERMISSION/FIELDS.md#name) |
-| `en_name` | [获取用户基本信息\(contact:user.base:readonly\)](./PERMISSION/FIELDS.md#en_name) |
-| `nickname` | [获取用户基本信息\(contact:user.base:readonly\)](./PERMISSION/FIELDS.md#nickname) |
-| `email` | [获取用户邮箱信息\(contact:user.email:readonly\)](./PERMISSION/FIELDS.md#email) |
-| `mobile` | [获取用户手机号\(contact:user.phone:readonly\)](./PERMISSION/FIELDS.md#mobile) |
-| `gender` | [获取用户性别\(contact:user.gender:readonly\)](./PERMISSION/FIELDS.md#gender) |
-| `avatar` | [获取用户基本信息\(contact:user.base:readonly\)](./PERMISSION/FIELDS.md#avatar) |
-| `status` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#status) |
-| `department_ids` | [获取用户组织架构信息\(contact:user.department:readonly\)](./PERMISSION/FIELDS.md#department_ids) |
-| `leader_user_id` | [获取用户组织架构信息\(contact:user.department:readonly\)](./PERMISSION/FIELDS.md#leader_user_id) |
-| `city` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#city) |
-| `country` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#country) |
-| `work_station` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#work_station) |
-| `join_time` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#join_time) |
-| `is_tenant_manager` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#is_tenant_manager) |
-| `employee_no` | [查看成员工号\(contact:user.employee_number:read\)](./PERMISSION/FIELDS.md#employee_no) |
-| `employee_type` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#employee_type) |
-| `orders` | [获取用户组织架构信息\(contact:user.department:readonly\)](./PERMISSION/FIELDS.md#orders) |
-| `custom_attrs` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#custom_attrs) |
-| `enterprise_email` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#enterprise_email) |
-| `job_title` | [获取用户受雇信息\(contact:user.employee:readonly\)](./PERMISSION/FIELDS.md#job_title) |
-| `geo` | [查看成员数据驻留地\(contact:user.user_geo\)](./PERMISSION/FIELDS.md#geo) |
-| `job_level_id` | [查询用户职级\(contact:user.job_level:readonly\)](./PERMISSION/FIELDS.md#job_level_id) |
-| `job_family_id` | [查询用户所属的工作序列\(contact:user.job_family:readonly\)](./PERMISSION/FIELDS.md#job_family_id) |
-| `department_path` | [获取成员所在部门路径\(contact:user.department_path:readonly\)](./PERMISSION/FIELDS.md#department_path) |
-| `dotted_line_leader_user_ids` | [查看成员的虚线上级 ID\(contact:user.dotted_line_leader_info.read\)](./PERMISSION/FIELDS.md#dotted_line_leader_user_ids) |
+请查看 [PERMISSION/FIELDS.md](../PERMISSION/FIELDS.md) 获取完整的权限说明和链接。
 
 ## 权限字段说明规范（2026-04-12 更新）
 
@@ -100,9 +95,22 @@
 - **权限字段说明**：格式为 `中文内容(权限标识)`，权限标识要有超链接
 - **API 版本**：标注是否为历史版本，推荐使用新版本 API
 - **权限校验**：说明 `user_access_token` 和 `tenant_access_token` 的不同权限校验方式
+- **必须完整**：文档、示例、字段说明、权限要求等**禁止简化**，必须保持完整版
+
+## 版本信息
+
+- **创建日期**：2026-04-12
+- **最后更新**：2026-04-12
+- **版本**：v1.0.0
+
+## 使用规范
+
+- **所有文档**：必须保持飞书官方文档的完整性，禁止简化、省略、合并
+- **所有示例**：必须完整展示，禁止省略部分行
+- **所有字段**：必须完整说明权限要求，禁止推算或猜测
+- **所有内容**：必须真实记录，禁止偷懒、失误或简化
 
 ## 待办
 
 - [ ] 记录更多飞书 API 文档
 - [ ] 补充权限配置说明
-- [ ] 创建自动化脚本模板
