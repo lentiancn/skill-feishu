@@ -10,16 +10,6 @@
 
 关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。
 
-## 接口信息
-
-| 项目 | 值 |
-|------|-----|
-| **API 路径** | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
-| **请求方法** | GET |
-| **接口频率限制** | 1000 次/分钟、50 次/秒 |
-| **支持的应用类型** | Custom App、Store App |
-| **文档地址** | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
-
 ## 权限要求
 
 | 权限类型 | 权限名称 |
@@ -46,6 +36,16 @@
 | 字段权限<br>（敏感字段） | 查看成员的虚线上级 ID(contact:user.dotted_line_leader_info.read) |
 
 > **说明**：敏感字段仅在开启对应权限后才会返回；如无需获取这些字段，不建议申请。
+
+## 接口信息
+
+| 项目 | 值 |
+|------|-----|
+| **API 路径** | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
+| **请求方法** | GET |
+| **接口频率限制** | 1000 次/分钟、50 次/秒 |
+| **支持的应用类型** | Custom App、Store App |
+| **文档地址** | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
 
 ## 接口请求
 
