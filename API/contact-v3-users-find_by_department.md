@@ -13,7 +13,7 @@
 ### 必要权限
 
 | 类型 | 名称 |
-|----------|----------|
+|------|------|
 | 应用权限（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
 | 应用权限（开启任一即可） | 获取通讯录部门组织架构信息 (contact:department.organize:readonly) |
 | 应用权限（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
@@ -23,7 +23,7 @@
 ### 可选权限
 
 | 类型 | 名称 |
-|----------|----------|
+|------|------|
 | 字段权限（敏感字段） | 获取用户基本信息 (contact:user.base:readonly) |
 | 字段权限（敏感字段） | 获取用户组织架构信息 (contact:user.department:readonly) |
 | 字段权限（敏感字段） | 获取成员所在部门路径 (contact:user.department_path:readonly) |
@@ -43,7 +43,7 @@
 ## 接口信息
 
 | API 路径 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
-|----------|-------------------------------------------------------------------------|
+|----------|------------------------------------------------------------------------|
 | 请求方法 | GET |
 | 调用频率限制 | 1000 次/分钟、50 次/秒 |
 | 支持的应用类型 | Custom App、Store App |
@@ -52,8 +52,6 @@
 ## 接口请求
 
 ### 请求头
-
-HTTP 请求头字段，用于身份认证和内容类型声明。
 
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
@@ -64,10 +62,10 @@ HTTP 请求头字段，用于身份认证和内容类型声明。
 
 | 参数名 | 类型 | 必填 | 描述 |
 |--------|------|------|------|
-| `user_id_type` | string | 否 | 用户 ID 类型<br>可选值：<br>- `open_id`：标识一个用户在某个应用中的身份<br>- `union_id`：标识一个用户在某个应用开发商下的身份<br>- `user_id`：标识一个用户在某个租户内的身份<br>默认值：`open_id`<br>**字段权限**：当值为 `user_id` 时，需要获取用户 user ID (contact:user.employee_id:readonly) |
-| `department_id_type` | string | 否 | 此次调用中使用的部门 ID 类型<br>可选值：<br>- `department_id`：支持用户自定义配置的部门 ID<br>- `open_department_id`：由系统自动生成的部门 ID<br>默认值：`open_department_id` |
-| `department_id` | string | 是 | 部门 ID，ID 类型与 department_id_type 的取值保持一致<br>说明：<br>- 根部门的部门 ID 为 0<br>- 你可以调用搜索部门接口获取对应的部门 ID |
-| `page_size` | integer | 否 | 分页大小<br>默认值：`10`<br>数据校验规则：<br>- 最大值：`50` |
+| `user_id_type` | string | 否 | 用户 ID 类型<br>可选值：<br>- `open_id`：标识一个用户在某个应用中的身份<br>- `union_id`：标识一个用户在某个应用开发商下的身份<br>- `user_id`：标识一个用户在某个租户内的身份<br>默认值：`open_id`<br>**权限要求**：当值为 `user_id` 时，需要获取用户 user ID (contact:user.employee_id:readonly) |
+| `department_id_type` | string | 否 | 部门 ID 类型<br>可选值：<br>- `department_id`：支持用户自定义配置的部门 ID<br>- `open_department_id`：由系统自动生成的部门 ID<br>默认值：`open_department_id` |
+| `department_id` | string | 是 | 部门 ID，ID 类型与 `department_id_type` 的取值保持一致。<br>说明：<br>- 根部门的部门 ID 为 0<br>- 可调用搜索部门接口获取对应的部门 ID |
+| `page_size` | int | 否 | 分页大小<br>默认值：`10`<br>数据校验规则：<br>- 最大值：`50` |
 | `page_token` | string | 否 | 分页标记，第一次请求不填，表示从头开始遍历 |
 
 ### 请求体
@@ -76,7 +74,7 @@ HTTP 请求头字段，用于身份认证和内容类型声明。
 
 ### 请求示例
 
-##### cURL 请求示例
+#### cURL 请求示例
 
 ```bash
 curl -X GET 'https://open.feishu.cn/open-apis/contact/v3/users?department_id=od_xxx&page_size=10&page_token=AQD9/...' \
@@ -84,7 +82,7 @@ curl -X GET 'https://open.feishu.cn/open-apis/contact/v3/users?department_id=od_
   -H 'Content-Type: application/json; charset=utf-8'
 ```
 
-##### Go 请求示例
+#### Go 请求示例
 
 ```go
 import (
@@ -111,7 +109,7 @@ func main() {
 }
 ```
 
-##### Java 请求示例
+#### Java 请求示例
 
 ```java
 import com.lark.oapi.Client;
@@ -137,7 +135,7 @@ public class Main {
 }
 ```
 
-##### Python 请求示例
+#### Python 请求示例
 
 ```python
 import requests
@@ -177,7 +175,10 @@ if __name__ == "__main__":
 |------|------|------|
 | `code` | int | 错误码，非 0 表示失败 |
 | `msg` | string | 错误描述 |
-| `data` | object | 响应数据，根据接口类型动态变化 |
+| `data` | object | 响应数据 |
+| `has_more` | boolean | 是否还有更多项 |
+| `page_token` | string | 分页标记，当 has_more 为 true 时返回 |
+| `items` | array | 用户信息列表 |
 
 ### 响应示例
 
@@ -310,16 +311,22 @@ if __name__ == "__main__":
 | 400 | 40012 | page token is invalid error |
 | 403 | 40004 | no dept authority error |
 
+### 服务端错误码 (5xx)
+
+| HTTP状态码 | 错误码 | 描述 |
+|------------|--------|------|
+| - | - | 暂无 |
+
 ## 附录
 
-### 按需定义章节标题，例如：相关链接
+### 相关链接
 
 | 链接类型 | 链接 |
 |----------|------|
-| 权限范围资源介绍 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
+| 应用权限配置 | [https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN) |
 | 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
 | 部门 ID 说明 | [https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview) |
-| 国家/地区 Code 参照表 | [https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description) |
+| 权限范围校验 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
 | 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
 
 ## 许可证
