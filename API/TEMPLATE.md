@@ -245,8 +245,11 @@ public class Main {
         FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
     }
 }
+```
 
 ##### Python 请求示例
+
+```python
 
 ```python
 import requests
