@@ -52,7 +52,7 @@
 
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**权限要求**：调用该 API 需要开启任意一项通讯录权限：<br>- 获取通讯录基本信息 (contact:contact.base:readonly)<br>- 获取通讯录部门组织架构信息 (contact:department.organize:readonly)<br>- 以应用身份访问通讯录 (contact:contact:access_as_app)<br>- 读取通讯录 (contact:contact:readonly)<br>- 以应用身份读取通讯录 (contact:contact:readonly_as_app)<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) |
+| `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) |
 | `Content-Type` | string | 是 | 固定值："application/json; charset=utf-8" |
 
 ### 请求参数
