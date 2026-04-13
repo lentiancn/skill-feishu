@@ -1,31 +1,34 @@
 # README.md - feishu-skill
 
-这个文件夹用于存放飞书相关的技能文档。
+这个技能用于在 OpenClaw 中集成飞书（Feishu/Lark）平台能力，包括：
 
-## 文件结构
+- 📝 飞书文档操作（读取、写入、插入表格等）
+- 📂 飞书云盘文件管理（列表、创建文件夹、移动、删除、评论）
+- 🔐 飞书权限管理（文档和文件的权限配置）
+- 📚 飞书知识库操作（空间、节点管理、搜索、移动、重命名）
+- 📊 飞书多维表格（Bitable）操作（元数据查询、字段管理、记录CRUD）
 
-- `SKILL.md` - 技能描述和说明
-- `API/` - 飞书 API 文档
-- `PERMISSION/` - 飞书权限配置
-- `SCRIPTS/` - 自动化脚本
+## 集成组件
 
-## API 文档组织
+### 文档与协作
+- `feishu_doc` - 飞书文档读写操作
 
-```
-API/
-├── contact-v3/    # 通讯录 v3 API
-├── department-v3/ # 部门管理 API
-└── user-v3/       # 用户管理 API
-```
+### 云存储管理
+- `feishu_drive` - 飞书云盘文件管理
 
-## 权限配置
+### 权限控制
+- `feishu_perm` - 飞书权限管理
 
-权限配置在 `PERMISSION/` 目录下，包含：
+### 知识库
+- `feishu_wiki` - 飞书知识库操作
 
-- `API_PERMISSIONS.md` - API 权限配置清单
-- `FIELDS.md` - 字段权限与所需权限对应表
-- `DEPARTMENT_ACCESS.md` - 部门访问权限配置
+### 多维表格
+- `feishu_bitable_*` - 多维表格相关操作（元数据、字段、记录）
 
-## 使用方法
+## API 文档来源
 
-每个模块有自己的 README，可查看详细说明。
+技能调用的飞书 OpenAPI 文档存放在 `open-apis/` 目录下，按功能模块组织。
+
+## 许可证
+
+**skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。
