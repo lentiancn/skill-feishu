@@ -365,31 +365,16 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 
 ### 模板说明
 
-错误码表格列出该接口可能返回的 HTTP 状态码、错误码、错误描述和排查建议。
+错误码表格列出该接口可能返回的 HTTP 状态码、错误码、错误描述。
 
 ### 模板示例
 
-| HTTP状态码 | 错误码 | 描述 | 排查建议 |
-|------------|--------|------|----------|
-| 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
-| 400 | 40011 | page size is invalid | 无效的分页参数。page_size 的取值上限为 50 |
-| 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
-| 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
-
-### 排查思路
-
-#### 模板说明
-
-排查思路表格用于提供详细的排查步骤。通常针对特定错误码（如 41050）提供不同调用方式（user_access_token vs tenant_access_token）的排查步骤。
-
-#### 模板示例
-
-| HTTP状态码 | 错误码 | 描述 | 排查建议 |
-|------------|--------|------|----------|
-| 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
-| 400 | 40011 | page size is invalid | 无效的分页参数。page_size 的取值上限为 50 |
-| 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
-| 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
+| HTTP状态码 | 错误码 | 描述 |
+|------------|--------|------|
+| 400 | 41050 | no user authority error |
+| 400 | 40011 | page size is invalid |
+| 400 | 40012 | page token is invalid error |
+| 403 | 40004 | no dept authority error |
 
 ## 附录
 
