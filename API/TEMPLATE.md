@@ -250,8 +250,6 @@ public class Main {
 ##### Python 请求示例
 
 ```python
-
-```python
 import requests
 import json
 
@@ -274,37 +272,6 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-		Build()
-
-	// 发起请求
-	resp, err := client.Contact.User.FindByDepartment(context.Background(), req)
-}
-```
-
-##### Java 请求示例
-
-```java
-import com.lark.oapi.Client;
-import com.lark.oapi.service.contact.v3.model.*;
-import com.lark.oapi.core.request.RequestOptions;
-
-public class Main {
-    public static void main(String arg[]) throws Exception {
-        // 构建client
-        Client client = Client.newBuilder("appId", "appSecret").build();
-
-        // 创建请求对象
-        FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder()
-                .userIdType("open_id")
-                .departmentIdType("open_department_id")
-                .departmentId("od-xxxxxxxxxxxxx")
-                .pageSize(10)
-                .build();
-
-        // 发起请求
-        FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
-    }
-}
 
 ## 接口响应
 
