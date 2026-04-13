@@ -41,6 +41,8 @@
 
 ### 请求头
 
+HTTP 请求头字段，用于身份认证和内容类型声明。
+
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) |
@@ -76,13 +78,19 @@ curl --location --request POST 'https://open.feishu.cn/open-apis/im/v1/messages/
 
 ## 接口响应
 
+### 响应头
+
+| 名称 | 类型 | 描述 |
+|------|------|------|
+| - | - | 无额外响应头字段 |
+
 ### 响应体
 
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `code` | int | 错误码，非 0 表示失败 |
 | `msg` | string | 错误描述 |
-| `data` | object | 响应数据 |
+| `data` | object | 响应数据，根据接口类型动态变化 |
 
 ### 响应示例
 
