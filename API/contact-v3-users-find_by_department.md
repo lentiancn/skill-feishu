@@ -324,10 +324,4 @@ if __name__ == "__main__":
 
 ## 许可证
 
-### 模板说明
-
-固定值：参考模板示例。
-
-### 模板示例
-
 **skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。
