@@ -173,9 +173,26 @@ POST/PUT 请求的 JSON body，GET 请求通常无请求体。
 
 #### 模板说明
 
-代码示例展示如何调用该接口，以 Go 和 Java 为例。
+代码示例展示如何调用该接口，支持多种编程语言和工具。根据实际需要选择示例：
+
+- **Go 和 Java 示例**：使用飞书 SDK（推荐）
+- **cURL 示例**：适用于快速测试，基于 HTTP 原生请求
+- **Python 示例**：适用于自动化脚本
+- **Node.js 示例**：适用于 Node.js 环境
+
+如果官方文档提供了其他语言的示例（如 PHP、C# 等），请参考文档格式添加相应代码。
 
 #### 模板示例
+
+##### cURL 请求示例
+
+cURL 是最简单的 HTTP 请求方式，适合快速测试：
+
+```bash
+curl -X GET 'https://open.feishu.cn/open-apis/contact/v3/users?department_id=od_xxx&page_size=10&page_token=AQD9/...' \
+  -H 'Authorization: Bearer tenant_access_token' \
+  -H 'Content-Type: application/json; charset=utf-8'
+```
 
 ##### Go 请求示例
 
@@ -228,7 +245,63 @@ public class Main {
         FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
     }
 }
+
+##### Python 请求示例
+
+```python
+import requests
+import json
+
+def main():
+    url = "https://open.feishu.cn/open-apis/contact/v3/users/find_by_department"
+    headers = {
+        "Authorization": "Bearer tenant_access_token",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    params = {
+        "department_id": "od-xxxxxxxxxxxxx",
+        "department_id_type": "open_department_id",
+        "user_id_type": "open_id",
+        "page_size": 10
+    }
+    
+    response = requests.get(url, headers=headers, params=params)
+    print(json.dumps(response.json(), indent=2, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main()
 ```
+		Build()
+
+	// 发起请求
+	resp, err := client.Contact.User.FindByDepartment(context.Background(), req)
+}
+```
+
+##### Java 请求示例
+
+```java
+import com.lark.oapi.Client;
+import com.lark.oapi.service.contact.v3.model.*;
+import com.lark.oapi.core.request.RequestOptions;
+
+public class Main {
+    public static void main(String arg[]) throws Exception {
+        // 构建client
+        Client client = Client.newBuilder("appId", "appSecret").build();
+
+        // 创建请求对象
+        FindByDepartmentUserReq req = FindByDepartmentUserReq.newBuilder()
+                .userIdType("open_id")
+                .departmentIdType("open_department_id")
+                .departmentId("od-xxxxxxxxxxxxx")
+                .pageSize(10)
+                .build();
+
+        // 发起请求
+        FindByDepartmentUserResp resp = client.contact().user().findByDepartment(req, RequestOptions.newBuilder().build());
+    }
+}
 
 ## 接口响应
 
