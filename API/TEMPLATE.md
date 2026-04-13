@@ -4,6 +4,25 @@
 
 这是 API 文档模板。使用此模板创建新的 API 文档时，请严格遵守以下结构和格式。
 
+### 文件命名规范
+
+**API 文件命名和目录结构规则**：
+
+1. **API 路径处理**：
+   - 以 `https://open.feishu.cn/open-apis` 开头的接口，目录结构为：`API/<api版本>/<resource>/`
+   - 例如：`https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal` 对应路径：`API/auth/v3/tenant_access_token_internal.md`
+   - 路径中的 `/` 替换为 `_`，去掉末尾的动词修饰（如 `/internal`），保持文件名简洁
+
+2. **非 standard 路径**：
+   - 如果接口路径不是以 `https://open.feishu.cn/open-apis` 开头，**请询问用户**文件名和路径
+
+3. **示例**：
+   | API 路径 | 对应文件路径 |
+   |----------|-------------|
+   | `/im/v1/messages` | `API/im/v1/messages.md` |
+   | `/im/v1/messages/:message_id/reply` | `API/im/v1/messages_reply.md` |
+   | `/contact/v3/users` | `API/contact/v3/users.md` |
+
 ### 模板说明和模板示例的说明
 
 - **模板说明**：用于说明模板中某些内容的注意事项、强调要点或提供背景信息。这些内容在最终生成文档时，**通常作为提示、说明文字或背景介绍，不会直接作为独立的大节出现**。
