@@ -56,8 +56,6 @@
 ### 模板示例
 
 ```markdown
-## 注意事项
-
 - 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。
 - 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。
 - 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。
@@ -163,13 +161,13 @@ HTTP 请求头字段，用于身份认证和内容类型声明。
 #### 模板示例
 
 ```markdown
-### 请求头
-
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/...) |
 | `Content-Type` | string | 是 | 固定值："application/json; charset=utf-8" |
 ```
+
+### 请求参数
 
 #### 模板说明
 
@@ -178,12 +176,12 @@ URL 查询参数或路径参数，用于传递请求所需的数据。
 #### 模板示例
 
 ```markdown
-### 请求参数
-
 | 参数名 | 类型 | 必填 | 描述 |
 |--------|------|------|------|
 | `param_name` | string | 否 | 参数说明<br>可选值：<br>- `open_id`：标识一个用户在某个应用中的身份<br>- `union_id`：标识一个用户在某个应用开发商下的身份<br>- `user_id`：标识一个用户在某个租户内的身份<br>默认值：`open_id`<br>**权限要求**：当值为 `user_id` 时，需要获取用户 user ID (contact:user.employee_id:readonly) |
 ```
+
+### 请求体
 
 #### 模板说明
 
@@ -192,16 +190,12 @@ POST/PUT 请求的 JSON body，GET 请求通常无请求体。
 #### 模板示例
 
 ```markdown
-### 请求体
-
 无请求体（GET 请求）
 ```
 
 或者：
 
 ```markdown
-### 请求体
-
 ```json
 {
     "field1": "value1",
@@ -210,6 +204,8 @@ POST/PUT 请求的 JSON body，GET 请求通常无请求体。
 ```
 ```
 
+### 请求示例
+
 #### 模板说明
 
 代码示例展示如何调用该接口，以 Go 和 Java 为例。
@@ -217,8 +213,6 @@ POST/PUT 请求的 JSON body，GET 请求通常无请求体。
 #### 模板示例
 
 ```markdown
-### 请求示例
-
 #### Go 请求示例
 
 ```go
@@ -255,15 +249,7 @@ public class Main {
 
 ## 接口响应
 
-### 模板说明
-
-接口响应章节包含：
-
-1. **响应头** - HTTP 响应头字段（如有）
-2. **响应体** - JSON 响应体结构
-3. **响应示例** - 完整的响应 JSON 示例
-
-### 模板示例
+### 响应头
 
 #### 模板说明
 
@@ -272,12 +258,12 @@ HTTP 响应头字段，通常该接口无额外响应头。
 #### 模板示例
 
 ```markdown
-### 响应头
-
 | 名称 | 类型 | 描述 |
 |------|------|------|
 | - | - | 无额外响应头字段 |
 ```
+
+### 响应体
 
 #### 模板说明
 
@@ -286,8 +272,6 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 #### 模板示例
 
 ```markdown
-### 响应体
-
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `code` | int | 错误码，非 0 表示失败 |
@@ -295,23 +279,31 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 | `data` | object | 响应数据 |
 ```
 
-#### 模板说明
+#### data 对象
+
+##### 模板说明
 
 响应体中的嵌套对象结构，如 data 对象及其子对象。
 
-#### 模板示例
+##### 模板示例
 
 ```markdown
-#### data 对象
-
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `has_more` | boolean | 是否还有更多项 |
 | `page_token` | string | 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token |
 | `items` | user[] | 用户信息列表 |
+```
 
-#### data.items 数组中的 user 对象
+###### data.items 数组中的 user 对象
 
+###### 模板说明
+
+user 对象的详细字段。
+
+###### 模板示例
+
+```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `user_id` | string | 用户的 user_id，租户内用户的唯一标识<br>**权限要求**：获取用户 user ID (contact:user.employee_id:readonly) |
@@ -319,26 +311,30 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 | `email` | string | 邮箱<br>**权限要求**：获取用户邮箱信息 (contact:user.email:readonly) |
 ```
 
-#### 模板说明
+#### 简单对象结构
+
+##### 模板说明
 
 简单的对象结构，只包含几个布尔值字段。
 
-#### 模板示例
+##### 模板示例
 
 ```markdown
-#### user_status 对象
-
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `is_frozen` | boolean | 是否为暂停状态 |
 | `is_resigned` | boolean | 是否为离职状态 |
 ```
 
-#### 响应示例示例
-
-```markdown
 ### 响应示例
 
+#### 模板说明
+
+完整的响应 JSON 示例。
+
+#### 模板示例
+
+```markdown
 ```json
 {
     "code": 0,
@@ -367,8 +363,6 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 ### 模板示例
 
 ```markdown
-## 错误码
-
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
 | 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
@@ -386,8 +380,6 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 ### 模板示例
 
 ```markdown
-### 排查思路
-
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
 | 400 | 41050 | no user authority error | **使用 tenant_access_token 调用 API**<br>当前操作的用户需要添加在应用的通讯录权限范围内。由开发者登录[开发者后台](https://open.feishu.cn/app)，在应用详情页的 **开发配置** > **权限管理** > **数据权限** 页面内，配置 **通讯录权限范围**，添加指定用户。已发布的应用企业管理员可在[管理后台](http://feishu.cn/admin) > **工作台** > **应用管理** 页面，修改应用的通讯录权限范围。<br><br>**使用 user_access_token 调用 API**<br>由企业管理员在[管理后台](http://feishu.cn/admin) > **安全** > **成员权限** 页面中，点击 **组织架构可见范围** 进行管理。 |
@@ -403,8 +395,6 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 ### 模板示例
 
 ```markdown
-## 相关链接
-
 | 链接类型 | 链接 |
 |----------|------|
 | 应用权限配置 | [https://open.feishu.cn/document/...](https://open.feishu.cn/document/...) |
