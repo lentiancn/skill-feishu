@@ -231,6 +231,8 @@ HTTP 响应头字段，通常该接口无额外响应头。
 
 JSON 响应体结构，包含 code、msg 和 data 字段。
 
+**如果某个字段有权限要求，要在"描述"字段中注明权限要求**。权限名称的格式为：`获取用户 user ID (contact:user.employee_id:readonly)`。参考模板示例中的 `user_id_type` 参数。
+
 #### 模板示例
 
 | 字段 | 类型 | 描述 |
