@@ -1,5 +1,15 @@
 # 回复消息
 
+## 说明
+
+调用该接口回复指定消息。回复的内容支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种类型。
+
+**注意事项**：
+- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)
+- 回复用户消息（单聊）时，用户需要在机器人的可用范围内
+- 回复群消息时，机器人需要在群中且拥有发言权限
+- 为避免消息发送频繁打扰用户，向同一用户发送消息限频为 5 QPS，向同一群组发送消息限频为群内机器人共享 5 QPS
+
 ## 权限要求
 
 ### 必要权限
@@ -10,7 +20,13 @@
 | 应用权限（开启任一即可） | 以应用的身份发消息 (im:message:send_as_bot) |
 | 应用权限（开启任一即可） | 发送消息V2 (im:message:send) |
 
-> **说明**：用户身份发消息需同时申请以下两个权限：获取与发送单聊、群组消息 (im:message)、以用户身份发送消息 (im:message.send_as_user)
+### 可选权限
+
+| 类型 | 名称 |
+|----------|----------|
+| 用户身份权限 | 以用户身份发送消息 (im:message.send_as_user) |
+
+> **说明**：用户身份发消息需同时申请获取与发送单聊、群组消息 (im:message) 和以用户身份发送消息 (im:message.send_as_user) 两个权限。
 
 ## 接口信息
 
@@ -40,14 +56,12 @@
 
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
-| `content` | string | 是 | 消息内容，JSON 结构序列化后的字符串<br>**注意**：<br>- JSON 字符串需进行转义（如换行符 `\n` 转义为 `\\n`）<br>- 文本消息最大不超过 150 KB<br>- 卡片消息、富文本消息最大不超过 30 KB<br>- 图片/音频/视频/文件需先上传，使用 Key 发送<br>示例值："`{\"text\":\"test content\"}`" |
+| `content` | string | 是 | 消息内容，JSON 结构序列化后的字符串<br>**注意**：<br>- JSON 字符串需进行转义（如换行符 `\n` 转义为 `\\n`）<br>- 文本消息最大不超过 150 KB<br>- 卡片消息、富文本消息最大不超过 30 KB<br>- 图片/音频/视频/文件需先上传，使用 Key 发送 |
 | `msg_type` | string | 是 | 消息类型<br>可选值：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user |
 | `reply_in_thread` | boolean | 否 | 是否以话题形式回复<br>默认值：`false` |
 | `uuid` | string | 否 | 自定义设置的唯一字符串序列，用于请求去重<br>长度不超过 50 字符 |
 
-## 请求示例
-
-### cURL 请求示例
+### 请求示例
 
 ```bash
 curl --location --request POST 'https://open.feishu.cn/open-apis/im/v1/messages/om_xxxxxx/reply' \
@@ -170,9 +184,7 @@ curl --location --request POST 'https://open.feishu.cn/open-apis/im/v1/messages/
 
 | 链接类型 | 链接 |
 |----------|------|
-| 应用权限配置 | [https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN) |
-| 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
-| 权限范围校验 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
-| 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
 | 机器人能力启用 | [https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) |
 | 可用范围配置 | [https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability) |
+| 权限范围校验 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
+| 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
