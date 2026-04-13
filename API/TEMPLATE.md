@@ -293,7 +293,7 @@ HTTP 响应头字段，通常该接口无额外响应头。
 
 #### 模板说明
 
-JSON 响应体结构，包含 code、msg 和 data 字段。
+JSON 响应体结构，包含 code、msg 和 data 字段。**响应体具体字段根据接口返回内容动态生成，不固定**。
 
 **如果某个字段有权限要求，要在"描述"字段中注明权限要求**。权限名称的格式为：`获取用户 user ID (contact:user.employee_id:readonly)`。参考请求参数下模板示例中的 `user_id_type` 权限要求写法。
 
@@ -303,7 +303,7 @@ JSON 响应体结构，包含 code、msg 和 data 字段。
 |------|------|------|
 | `code` | int | 错误码，非 0 表示失败 |
 | `msg` | string | 错误描述 |
-| `data` | object | 响应数据 |
+| `data` | object | 响应数据，根据接口类型动态变化 |
 
 ### 响应示例
 
