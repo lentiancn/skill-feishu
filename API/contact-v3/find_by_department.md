@@ -12,13 +12,20 @@
 
 ## 权限要求
 
-| 权限类型 | 权限名称 |
+### 必要权限
+
+| 类型 | 名称 |
 |----------|----------|
 | 应用权限（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
 | 应用权限（开启任一即可） | 获取通讯录部门组织架构信息 (contact:department.organize:readonly) |
 | 应用权限（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
 | 应用权限（开启任一即可） | 读取通讯录 (contact:contact:readonly) |
 | 应用权限（开启任一即可） | 以应用身份读取通讯录 (contact:contact:readonly_as_app) |
+
+### 可选权限
+
+| 类型 | 名称 |
+|----------|----------|
 | 字段权限（敏感字段） | 统一用户标识 (contact:user.base:readonly) |
 | 字段权限（敏感字段） | 获取用户 user ID (contact:user.employee_id:readonly) |
 | 字段权限（敏感字段） | 应用内用户标识 (contact:user.base:readonly) |
