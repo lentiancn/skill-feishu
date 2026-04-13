@@ -142,6 +142,8 @@ URL 查询参数或路径参数，用于传递请求所需的数据。
 
 POST/PUT 请求的 JSON body，GET 请求通常无请求体。
 
+**如果请求体中有字段有权限要求，要在"描述"字段中注明权限要求**。权限名称的格式为：`获取用户 user ID (contact:user.employee_id:readonly)`。参考模板示例中的 `user_id_type` 参数。
+
 #### 模板示例
 
 无请求体（GET 请求）
