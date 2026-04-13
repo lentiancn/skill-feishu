@@ -9,25 +9,26 @@
 **API 文件命名和目录结构规则**：
 
 1. **API 路径处理**：
-   - 以 `https://open.feishu.cn/open-apis` 开头的接口，目录结构为：`API/<api版本>/<resource>/`
-   - 例如：`https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal` 对应路径：`API/auth/v3/tenant_access_token_internal.md`
-   - 路径中的 `/` 替换为 `_`，去掉末尾的动词修饰（如 `/internal`），保持文件名简洁
+   - 以 `https://open.feishu.cn/open-apis` 开头的接口，文件直接放在 `API/` 目录下
+   - 将路径中的 `/` 替换为 `-`，`:` 直接删除
+   - 添加 `.md` 后缀
 
 2. **非 standard 路径**：
    - 如果接口路径不是以 `https://open.feishu.cn/open-apis` 开头，**请询问用户**文件名和路径
 
 3. **示例**：
-   | API 路径 | 对应文件路径 |
+   | API 路径 | 对应文件名 |
    |----------|-------------|
-   | `/im/v1/messages` | `API/im/v1/messages.md` |
-   | `/im/v1/messages/:message_id/reply` | `API/im/v1/messages_reply.md` |
-   | `/contact/v3/users` | `API/contact/v3/users.md` |
+   | `/im/v1/messages` | `im-v1-messages.md` |
+   | `/im/v1/messages/:message_id/reply` | `im-v1-messages-message_id-reply.md` |
+   | `/auth/v3/tenant_access_token/internal` | `auth-v3-tenant_access_token-internal.md` |
+   | `/contact/v3/users` | `contact-v3-users.md` |
 
 ### 模板说明和模板示例的说明
 
 - **模板说明**：用于说明模板中某些内容的注意事项、强调要点或提供背景信息。这些内容在最终生成文档时，**通常作为提示、说明文字或背景介绍，不会直接作为独立的大节出现**。
 
-- **模板示例**：用于展示实际 API 文档的完整结构和格式。后面根据模板生成文档时，需要按照"模板示例"中的内容和格式来编写实际的文档内容。
+- **模板示例**：用于展示实际 API 文档的完整结构和格式。后面根据模板生成文档时，需要按照"模板示例"中的内容和格式来编写实际的文档内容。面根据模板生成文档时，需要按照"模板示例"中的内容和格式来编写实际的文档内容。
 
 ### 使用模板生成真实 API 文档的约束
 
