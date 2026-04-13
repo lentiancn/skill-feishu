@@ -237,3 +237,13 @@ if __name__ == '__main__':
 | 如何启用机器人能力 | [https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) |
 | 配置应用可用范围 | [https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability) |
 | 服务端通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
+
+## 许可证
+
+### 模板说明
+
+固定值：参考模板示例。
+
+### 模板示例
+
+**skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。
