@@ -1,33 +1,38 @@
-# README.md - feishu-skill
+# README.md - skill-feishu
 
-这个技能用于在 OpenClaw 中集成飞书（Feishu/Lark）平台能力，包括：
+这个 skill 用于**收集和记录飞书开放平台的 API 文档**，存放在 `open-apis/` 目录下。
 
-- 📝 飞书文档操作（读取、写入、插入表格等）
-- 📂 飞书云盘文件管理（列表、创建文件夹、移动、删除、评论）
-- 🔐 飞书权限管理（文档和文件的权限配置）
-- 📚 飞书知识库操作（空间、节点管理、搜索、移动、重命名）
-- 📊 飞书多维表格（Bitable）操作（元数据查询、字段管理、记录CRUD）
+## 目的
 
-## 集成组件
+将飞书开放平台的 API 文档整理成本地 Markdown 文档，方便离线查阅和引用。
 
-### 文档与协作
-- `feishu_doc` - 飞书文档读写操作
+## 目录结构
 
-### 云存储管理
-- `feishu_drive` - 飞书云盘文件管理
+```
+skills/skill-feishu/
+├── SKILL.md          - Skill 使用规范和规则说明
+├── README.md         - 本文档
+└── open-apis/        - 飞书 API 文档集合
+    ├── README.md     - API 分类说明
+    ├── TEMPLATE.md   - API 文档模板
+    └── *.md          - 各 API 的完整文档
+```
 
-### 权限控制
-- `feishu_perm` - 飞书权限管理
+## API 分类
 
-### 知识库
-- `feishu_wiki` - 飞书知识库操作
+| 分类 | 说明 |
+|------|------|
+| `auth-*.md` | 认证相关 API（tenant_access_token, user_access_token） |
+| `authen-*.md` | OAuth 2.0 认证 API |
+| `contact-v3-*.md` | 通讯录 v3 API（用户、部门管理） |
+| `im-*.md` | 消息 API |
+| `passport-*.md` | 用户登录信息 API |
 
-### 多维表格
-- `feishu_bitable_*` - 多维表格相关操作（元数据、字段、记录）
+## 使用说明
 
-## API 文档来源
-
-技能调用的飞书 OpenAPI 文档存放在 `open-apis/` 目录下，按功能模块组织。
+1. 查看 `SKILL.md` 了解文档收集规则和禁止操作
+2. 参考 `open-apis/TEMPLATE.md` 创建新的 API 文档
+3. 已记录的 API 列表见 `open-apis/README.md`
 
 ## 许可证
 
