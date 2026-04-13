@@ -1,93 +1,18 @@
-# API 模板文档
+# 获取用户列表 (contact/v3/users/find_by_department)
 
-## 说明
+调用该接口获取指定部门直属的用户信息列表。用户信息包括用户 ID、名称、邮箱、手机号以及状态等信息。
 
-这是 API 文档模板。使用此模板创建新的 API 文档时，请严格遵守以下结构和格式。
+## 注意意事项
 
-## 结构
+关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。
 
-- **模板要求**
-- **注意事项**
-  - **模板说明**
-  - **模板示例**
-- **权限要求**
-  - **必要权限**
-    - 模板说明
-    - 模板示例
-  - **可选权限**
-    - 模板说明
-    - 模板示例
-- **接口信息**
-  - 模板说明
-  - 模板示例
-- **接口请求**
-  - **请求头**
-    - 模板说明
-    - 模板示例
-  - **请求参数**
-    - 模板说明
-    - 模板示例
-  - **请求体**
-    - 模板说明
-    - 模板示例
-  - **请求示例**
-    - 模板说明
-    - 模板示例
-- **接口响应**
-  - **响应头**
-    - 模板说明
-    - 模板示例
-  - **响应体**
-    - 模板说明
-    - 模板示例
-  - **data 对象**
-    - 模板说明
-    - 模板示例
-  - **data.items 数组中的 user 对象**
-    - 模板说明
-    - 模板示例
-  - **user_status 对象**
-    - 模板说明
-    - 模板示例
-  - **avatar_info 对象**
-    - 模板说明
-    - 模板示例
-  - **user_order 对象**
-    - 模板说明
-    - 模板示例
-  - **user_custom_attr 对象**
-    - 模板说明
-    - 模板示例
-  - **user_custom_attr_value 对象**
-    - 模板说明
-    - 模板示例
-  - **generic_user 对象**
-    - 模板说明
-    - 模板示例
-  - **department_detail 对象**
-    - 模板说明
-    - 模板示例
-  - **department_path_name 对象**
-    - 模板说明
-    - 模板示例
-  - **department_i18n_name 对象**
-    - 模板说明
-    - 模板示例
-  - **department_path 对象**
-    - 模板说明
-    - 模板示例
-  - **响应示例**
-    - 模板说明
-    - 模板示例
-- **错误码**
-  - 模板说明
-  - 模板示例
-- **排查思路**
-  - 模板说明
-  - 模板示例
-- **相关链接**
-  - 模板说明
-  - 模板示例
+## 注意事项
+
+- 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。
+- 使用应用身份（tenant_access_token）调用该接口时，接口将根据应用的通讯录权限范围进行过滤。如果请求的部门 ID 为 0（即根部门），则接口会校验应用是否具有全员的通讯录权限；如果请求的是非 0 的部门 ID，则会校验应用是否具有该部门的通讯录权限。无权限时，接口会返回无权限的报错信息；有权限则返回对应部门下的直属用户列表。
+- 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。
+
+关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。
 
 ## 模板要求
 
@@ -100,17 +25,7 @@
 5. 响应示例提供完整的 JSON 示例
 6. 错误码和排查思路分开编写
 
-## 注意事项
-
-### 模板说明
-
-此处说明该接口的使用场景、注意事项等重要信息，特别是：
-
-- 用户身份（user_access_token）调用时的过滤行为
-- 应用身份（tenant_access_token）调用时的过滤行为
-- 特殊字段的返回条件
-
-### 模板示例
+## 模板示例
 
 ```markdown
 - 使用用户身份（user_access_token）调用该接口时，接口将根据该用户的组织架构可见范围进行过滤，仅返回组织架构可见范围内的用户数据。
@@ -118,22 +33,11 @@
 - 使用应用身份（tenant_access_token）调用本接口时，响应结果中不会返回部门路径字段（department_path）。如需获取部门路径字段值，请为应用申请 **获取成员所在部门路径（contact:user.department_path:readonly）** API 权限，并使用用户身份（user_access_token）调用接口。
 
 关于用户组织架构可见范围和通讯录权限范围的更多信息，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。
-```
 
 ## 权限要求
 
 ### 必要权限
 
-#### 模板说明
-
-调用该 API **必须开启**的权限。开启其中任意一项权限即可调用该接口。
-
-权限类型通常为：
-- `应用权限（开启任一即可）` - 应用需要配置的权限
-
-#### 模板示例
-
-```markdown
 | 类型 | 名称 |
 |----------|----------|
 | 应用权限（开启任一即可） | 获取通讯录基本信息 (contact:contact.base:readonly) |
@@ -141,20 +45,9 @@
 | 应用权限（开启任一即可） | 以应用身份访问通讯录 (contact:contact:access_as_app) |
 | 应用权限（开启任一即可） | 读取通讯录 (contact:contact:readonly) |
 | 应用权限（开启任一即可） | 以应用身份读取通讯录 (contact:contact:readonly_as_app) |
-```
 
 ### 可选权限
 
-#### 模板说明
-
-敏感字段的权限要求。如果无需获取这些敏感字段，则不需要申请这些权限。
-
-权限类型通常为：
-- `字段权限（敏感字段）` - 敏感字段需要的权限
-
-#### 模板示例
-
-```markdown
 | 类型 | 名称 |
 |----------|----------|
 | 字段权限（敏感字段） | 统一用户标识 (contact:user.base:readonly) |
@@ -172,61 +65,29 @@
 | 字段权限（敏感字段） | 查询用户所属的工作序列 (contact:user.job_family:readonly) |
 | 字段权限（敏感字段） | 获取成员所在部门路径 (contact:user.department_path:readonly) |
 | 字段权限（敏感字段） | 查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
-```
 
-```markdown
 > **说明**：敏感字段仅在开启对应权限后才会返回；如无需获取这些字段，不建议申请。
-```
 
 ## 接口信息
 
-### 模板说明
-
-接口信息表格展示接口的基本信息，包括：
-
-- **API 路径**：接口的完整 URL
-- **请求方法**：GET/POST/PUT/DELETE 等
-- **调用频率限制**：每分钟/每秒的调用次数限制
-- **支持的应用类型**：Custom App 或 Store App
-- **文档地址**：飞书开放平台的文档链接
-
-### 模板示例
-
-```markdown
 | API 路径 | `https://open.feishu.cn/open-apis/contact/v3/users/find_by_department` |
 |----------|------------------------------------------------------------------------|
 | 请求方法 | GET |
 | 调用频率限制 | 1000 次/分钟、50 次/秒 |
 | 支持的应用类型 | Custom App、Store App |
 | 文档地址 | [飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department) |
-```
 
 ## 接口请求
 
 ### 请求头
 
-#### 模板说明
-
-HTTP 请求头字段，用于身份认证和内容类型声明。
-
-#### 模板示例
-
-```markdown
 | 名称 | 类型 | 必填 | 描述 |
 |------|------|------|------|
 | `Authorization` | string | 是 | `tenant_access_token` 或 `user_access_token`<br>值格式："Bearer `access_token`"<br>示例值："Bearer u-7f1bcd13fc57d46bac21793a18e560"<br>**了解更多**：[如何选择与获取 access token](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-choose-which-type-of-token-to-use) |
 | `Content-Type` | string | 是 | 固定值："application/json; charset=utf-8" |
-```
 
 ### 请求参数
 
-#### 模板说明
-
-URL 查询参数或路径参数，用于传递请求所需的数据。
-
-#### 模板示例
-
-```markdown
 | 参数名 | 类型 | 必填 | 描述 |
 |--------|------|------|------|
 | `user_id_type` | string | 否 | 用户 ID 类型<br>可选值：<br>- `open_id`：标识一个用户在某个应用中的身份<br>- `union_id`：标识一个用户在某个应用开发商下的身份<br>- `user_id`：标识一个用户在某个租户内的身份<br>默认值：`open_id`<br>**权限要求**：当值为 `user_id` 时，需要获取用户 user ID (contact:user.employee_id:readonly) |
@@ -234,40 +95,13 @@ URL 查询参数或路径参数，用于传递请求所需的数据。
 | `department_id` | string | 是 | 部门 ID，ID 类型与 `department_id_type` 的取值保持一致。<br>说明：<br>- 根部门的部门 ID 为 0<br>- 可调用搜索部门接口获取对应的部门 ID |
 | `page_size` | int | 否 | 分页大小<br>默认值：`10`<br>数据校验规则：<br>- 最大值：`50` |
 | `page_token` | string | 否 | 分页标记，第一次请求不填，表示从头开始遍历 |
-```
 
 ### 请求体
 
-#### 模板说明
-
-POST/PUT 请求的 JSON body，GET 请求通常无请求体。
-
-#### 模板示例
-
-```markdown
 无请求体（GET 请求）
-```
-
-或者：
-
-```markdown
-```json
-{
-    "field1": "value1",
-    "field2": "value2"
-}
-```
-```
 
 ### 请求示例
 
-#### 模板说明
-
-代码示例展示如何调用该接口，以 Go 和 Java 为例。
-
-#### 模板示例
-
-```markdown
 #### Go 请求示例
 
 ```go
@@ -320,65 +154,33 @@ public class Main {
     }
 }
 ```
-```
 
 ## 接口响应
 
 ### 响应头
 
-#### 模板说明
-
-HTTP 响应头字段，通常该接口无额外响应头。
-
-#### 模板示例
-
-```markdown
 | 名称 | 类型 | 描述 |
 |------|------|------|
 | - | - | 无额外响应头字段 |
-```
 
 ### 响应体
 
-#### 模板说明
-
-JSON 响应体结构，包含 code、msg 和 data 字段。
-
-#### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `code` | int | 错误码，非 0 表示失败 |
 | `msg` | string | 错误描述 |
 | `data` | object | 响应数据 |
-```
 
 #### data 对象
 
-##### 模板说明
-
-响应体中的嵌套对象结构，如 data 对象及其子对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `has_more` | boolean | 是否还有更多项 |
 | `page_token` | string | 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token |
 | `items` | user[] | 用户信息列表 |
-```
 
 #### data.items 数组中的 user 对象
 
-##### 模板说明
-
-user 对象的详细字段。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `union_id` | string | 用户的 union_id，是应用开发商发布的不同应用中同一用户的标识<br>**权限要求**：统一用户标识 (contact:user.base:readonly) |
@@ -421,17 +223,9 @@ user 对象的详细字段。
 | `job_family_id` | string | 序列 ID<br>**权限要求**：查询用户所属的工作序列 (contact:user.job_family:readonly) |
 | `department_path` | object[] | 部门路径（仅 user_access_token 返回）<br>**权限要求**：获取成员所在部门路径 (contact:user.department_path:readonly) |
 | `dotted_line_leader_user_ids` | string[] | 虚线上级的用户 ID<br>**权限要求**：查看成员的虚线上级 ID (contact:user.dotted_line_leader_info.read) |
-```
 
 #### user_status 对象
 
-##### 模板说明
-
-简单的对象结构，只包含几个布尔值字段。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `is_frozen` | boolean | 是否为暂停状态 |
@@ -439,67 +233,35 @@ user 对象的详细字段。
 | `is_activated` | boolean | 是否为激活状态 |
 | `is_exited` | boolean | 是否为主动退出状态 |
 | `is_unjoin` | boolean | 是否为未加入状态 |
-```
 
 #### avatar_info 对象
 
-##### 模板说明
-
-用户头像信息对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `avatar_72` | string | 72*72 像素头像链接 |
 | `avatar_240` | string | 240*240 像素头像链接 |
 | `avatar_640` | string | 640*640 像素头像链接 |
 | `avatar_origin` | string | 原始头像链接 |
-```
 
 #### user_order 对象
 
-##### 模板说明
-
-用户排序信息对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `department_id` | string | 排序信息对应的部门 ID |
 | `user_order` | int | 用户在其直属部门内的排序 |
 | `department_order` | int | 用户所属的多个部门间的排序 |
 | `is_primary_dept` | boolean | 是否为用户的唯一主部门 |
-```
 
 #### user_custom_attr 对象
 
-##### 模板说明
-
-自定义字段对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `type` | string | 自定义字段类型<br>- TEXT：文本<br>- HREF：网页<br>- ENUMERATION：枚举<br>- PICTURE_ENUM：图片<br>- GENERIC_USER：用户 |
 | `id` | string | 自定义字段 ID |
 | `value` | object | 自定义字段取值 |
-```
 
 #### user_custom_attr_value 对象
 
-##### 模板说明
-
-自定义字段值对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `text` | string | TEXT 类型返回字段值 |
@@ -510,95 +272,47 @@ user 对象的详细字段。
 | `name` | string | PICTURE_ENUM 类型返回图片名称 |
 | `picture_url` | string | PICTURE_ENUM 类型返回图片链接 |
 | `generic_user` | object | GENERIC_USER 类型返回引用人员信息 |
-```
 
 #### generic_user 对象
 
-##### 模板说明
-
-引用人员信息对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `id` | string | 引用人员的用户 ID |
 | `type` | int | 用户类型（固定为 1） |
-```
 
 #### department_detail 对象
 
-##### 模板说明
-
-部门详情对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `department_id` | string | 部门 ID |
 | `department_name` | object | 部门名称信息 |
 | `department_path` | object | 部门路径 |
 | `department_ids` | string[] | 部门路径 ID 列表 |
-```
 
 #### department_path_name 对象
 
-##### 模板说明
-
-部门路径名称对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `name` | string | 部门名 |
 | `i18n_name` | object | 部门国际化名 |
-```
 
 #### department_i18n_name 对象
 
-##### 模板说明
-
-部门国际化名称对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `zh_cn` | string | 部门的中文名 |
 | `ja_jp` | string | 部门的日文名 |
 | `en_us` | string | 部门的英文名 |
-```
 
 #### department_path 对象
 
-##### 模板说明
-
-部门路径对象。
-
-##### 模板示例
-
-```markdown
 | 字段 | 类型 | 描述 |
 |------|------|------|
 | `department_ids` | string[] | 部门路径 ID 列表 |
 | `department_path_name` | object | 部门路径名字信息 |
-```
 
 ### 响应示例
 
-#### 模板说明
-
-完整的响应 JSON 示例。
-
-#### 模板示例
-
-```markdown
 ```json
 {
     "code": 0,
@@ -710,51 +424,27 @@ user 对象的详细字段。
     }
 }
 ```
-```
 
 ## 错误码
 
-### 模板说明
-
-错误码表格列出该接口可能返回的 HTTP 状态码、错误码、错误描述和排查建议。
-
-### 模板示例
-
-```markdown
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
 | 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
 | 400 | 40011 | page size is invalid | 无效的分页参数。page_size 的取值上限为 50 |
 | 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
 | 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
-```
 
 ### 排查思路
 
-#### 模板说明
-
-排查思路表格用于提供详细的排查步骤。通常针对特定错误码（如 41050）提供不同调用方式（user_access_token vs tenant_access_token）的排查步骤。
-
-#### 模板示例
-
-```markdown
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
 | 400 | 41050 | no user authority error | 无用户权限。需将当前操作的用户添加到应用或用户的权限范围内 |
 | 400 | 40011 | page size is invalid | 无效的分页参数。page_size 的取值上限为 50 |
 | 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
 | 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
-```
 
 ## 相关链接
 
-### 模板说明
-
-相关链接表格列出与该接口相关的飞书官方文档链接。
-
-### 模板示例
-
-```markdown
 | 链接类型 | 链接 |
 |----------|------|
 | 应用权限配置 | [https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN) |
@@ -762,4 +452,3 @@ user 对象的详细字段。
 | 部门 ID 说明 | [https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview) |
 | 权限范围校验 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
 | 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
-```
