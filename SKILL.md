@@ -38,8 +38,11 @@ API 文档严格遵循 `open-apis/TEMPLATE.md` 模板格式，示例参考 `open
 - **open-apis/** - 飞书 API 文档集合
   - README.md
   - TEMPLATE.md
-  - open-apis/contact-v3/ - 飞书联系人 v3 API
-  - open-apis/im-v1/ - 飞书消息 API
+  - auth-v3-tenant_access_token-internal.md - 自建应用获取 tenant_access_token
+  - authen-v1-user_info.md - 获取用户信息
+  - contact-v3-*.md - 通讯录 v3 API（用户、部门）
+  - im-v1-*.md - 消息 API
+  - passport-v1-sessions-query.md - 获取用户登录信息
 
 ## App 配置
 

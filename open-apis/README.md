@@ -6,9 +6,11 @@
 
 | 分类 | 说明 |
 |------|------|
-| `contact-v3/` | 通讯录 v3 API（用户、部门） |
-| `department-v3/` | 部门管理 API |
-| `user-v3/` | 用户管理 API |
+| `contact-v3-*.md` | 通讯录 v3 API（用户、部门） |
+| `im-v1-*.md` | 消息 API |
+| `passport-v1-*.md` | 用户登录信息 API |
+| `auth-v3-*.md` | 认证 API |
+| `authen-v1-*.md` | OAuth 2.0 API |
 
 ## 使用方法
 
@@ -27,8 +29,21 @@
 
 ## 已记录 API
 
-| 分类 | API | 状态 |
-|------|-----|------|
-| contact-v3 | 获取用户列表 | ✅ 已记录 |
-| contact-v3 | 获取部门直属用户列表 | ✅ 已记录 |
-| contact-v3 | 获取单个用户信息 | ✅ 已记录 |
+| API | 状态 |
+|-----|------|
+| auth-v3-tenant_access_token-internal | ✅ 已记录 |
+| authen-v1-user_info | ✅ 已记录 |
+| contact-v3-users-find_by_department | ✅ 已记录 |
+| contact-v3-users | ✅ 已记录 |
+| contact-v3-users-user_id | ✅ 已记录 |
+| contact-v3-users-batch | ✅ 已记录 |
+| contact-v3-users-batch_get_id | ✅ 已记录 |
+| contact-v3-users-basic_batch | ✅ 已记录 |
+| contact-v3-scopes | ✅ 已记录 |
+| contact-v3-departments-batch | ✅ 已记录 |
+| contact-v3-departments-department_id | ✅ 已记录 |
+| contact-v3-departments-department_id-children | ✅ 已记录 |
+| contact-v3-departments-parent | ✅ 已记录 |
+| im-v1-messages | ✅ 已记录 |
+| im-v1-messages-message_id-reply | ✅ 已记录 |
+| passport-v1-sessions-query | ✅ 已记录 |
