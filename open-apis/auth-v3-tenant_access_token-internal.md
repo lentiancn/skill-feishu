@@ -172,7 +172,3 @@ func main() {
 |----------|------|
 | 通用参数 | [https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology) |
 | 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
-
-## 许可证
-
-**skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。

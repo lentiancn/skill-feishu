@@ -267,7 +267,3 @@ if __name__ == "__main__":
 | 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
 | 配置应用数据权限 | [https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/configure-app-data-permissions](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/configure-app-data-permissions) |
 | 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
-
-## 许可证
-
-**skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。

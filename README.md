@@ -33,7 +33,3 @@ skills/skill-feishu/
 1. 查看 `SKILL.md` 了解文档收集规则和禁止操作
 2. 参考 `open-apis/TEMPLATE.md` 创建新的 API 文档
 3. 已记录的 API 列表见 `open-apis/README.md`
-
-## 许可证
-
-**skill-feishu** 采用 [MIT-0 许可证](https://raw.githubusercontent.com/lentiancn/skill-feishu/refs/heads/main/LICENSE)授权。
