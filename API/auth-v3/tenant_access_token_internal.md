@@ -49,12 +49,24 @@
 
 ### 请求示例
 
+#### cURL 请求示例
+
+```bash
+curl -X POST 'https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -d '{
+    "app_id": "cli_slkdjalasdkjasd",
+    "app_secret": "dskLLdkasdjlasdKK"
+  }'
+```
+
 #### Go 请求示例
 
 ```go
+package main
+
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -115,6 +127,29 @@ public class Main {
         }
     }
 }
+```
+
+#### Python 请求示例
+
+```python
+import requests
+import json
+
+def main():
+    url = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
+    headers = {
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    body = {
+        "app_id": "cli_slkdjalasdkjasd",
+        "app_secret": "dskLLdkasdjlasdKK"
+    }
+    
+    response = requests.post(url, headers=headers, json=body)
+    print(json.dumps(response.json(), indent=2, ensure_ascii=False))
+
+if __name__ == "__main__":
+    main()
 ```
 
 ## 接口响应
