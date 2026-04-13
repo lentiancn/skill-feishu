@@ -403,7 +403,7 @@ public class Main {
 | 400 | 40012 | page token is invalid error | 无效的分页参数。需要检查传入的 page_token 是否为上次请求返回的 page_token 值 |
 | 403 | 40004 | no dept authority error | 无部门权限。当前操作的部门需在应用的通讯录权限范围内 |
 
-### 错误码排查思路
+## 排错思路
 
 | HTTP状态码 | 错误码 | 描述 | 排查建议 |
 |------------|--------|------|----------|
