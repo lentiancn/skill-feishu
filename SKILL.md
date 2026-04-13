@@ -1,35 +1,10 @@
 # skill-feishu - 飞书相关技能
 
-这个技能包用于处理飞书相关操作，**收集飞书 API 到 API/ 目录，收集权限信息到 PERMISSION/ 目录**。
+这个技能包用于处理飞书相关操作，**收集飞书 API 到 open-apis/ 目录**。
 
 ## API 文档格式
 
-API 文档严格遵循 `API/TEMPLATE.md` 模板格式，示例参考 `API/contact-v3/find_by_department.md`。
-
-## 权限文档格式
-
-权限文档严格遵循 `PERMISSION/TEMPLATE.md` 模板格式。
-
-### 包含模块
-
-- **API** - 飞书 API 文档集合
-- **API** - 飞书 API 文档集合
-  - README.md
-  - REFERENCES.md
-  - TEMPLATE.md
-  - contact-v3/ - 飞书联系人 v3 API
-    - README.md
-    - find_by_department.md
-    - get_user.md
-    - users.md
-  - department-v3/ - 飞书部门 API
-  - user-v3/ - 飞书用户 API
-- **PERMISSION** - 飞书权限配置指南
-  - README.md
-  - API_PERMISSIONS.md
-  - DEPARTMENT_ACCESS.md
-  - FIELDS.md
-  - TEMPLATE.md
+API 文档严格遵循 `open-apis/TEMPLATE.md` 模板格式，示例参考 `open-apis/contact-v3-users-find_by_department.md`。
 
 ## 重要规则（必读）
 
@@ -58,7 +33,13 @@ API 文档严格遵循 `API/TEMPLATE.md` 模板格式，示例参考 `API/contac
 
 ## 使用说明
 
-每个模块有自己的 README，可查看详细说明。
+### 目录结构
+
+- **open-apis/** - 飞书 API 文档集合
+  - README.md
+  - TEMPLATE.md
+  - open-apis/contact-v3/ - 飞书联系人 v3 API
+  - open-apis/im-v1/ - 飞书消息 API
 
 ## App 配置
 
@@ -74,6 +55,7 @@ API 文档严格遵循 `API/TEMPLATE.md` 模板格式，示例参考 `API/contac
 | 用户相关的 ID 概念 | [https://open.feishu.cn/document/home/user-identity-introduction/introduction](https://open.feishu.cn/document/home/user-identity-introduction/introduction) |
 | 部门 ID 说明 | [https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview) |
 | 权限范围校验 | [https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority) |
+| 通用错误码 | [https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN](https://open.feishu.cn/document/ukTMukTMukTM/ugjM14COyUjL4ITN) |
 
 ## 记录规则
 
@@ -84,34 +66,12 @@ API 文档严格遵循 `API/TEMPLATE.md` 模板格式，示例参考 `API/contac
 
 ## 权限字段说明规范（2026-04-12 更新）
 
-### 字段权限要求格式
-
-- **权限标识**：使用飞书开放平台的标准权限标识
-- **中文说明**：格式为 `中文内容 (权限标识)`
-- **超链接**：将权限标识链接到 `PERMISSION/FIELDS.md` 中对应的权限详情
-- **必须完整**：权限说明、字段说明、示例等**禁止简化**，必须保持飞书官方文档的完整性
-
-### 字段权限说明示例
-
-```markdown
-| 字段 | 所需权限 |
-|------|---------|
-| `union_id` | 统一用户标识 (contact:contact:readonly) |
-| `user_id` | 获取用户 user ID (contact:user.employee_id:readonly) |
-```
-
-### 字段权限要求
-
-请查看 [PERMISSION/FIELDS.md](../PERMISSION/FIELDS.md) 获取完整的权限说明和链接。
-
-## 权限字段说明规范（2026-04-12 更新）
-
 ### 收集信息的整理方式
 
 1. **从飞书开放平台 API 调试台**：复制 API 文档内容，整理成 Markdown 格式
 2. **从用户提供的文本**：识别出关键信息，结构化整理
 3. **权限字段**：按字段分类，添加中文说明和权限标识
-4. **权限链接**：所有权限标识必须链接到 `PERMISSION/FIELDS.md` 中对应的权限详情
+4. **权限链接**：所有权限标识必须链接到飞书官方文档
 
 ### 注意事项
 
